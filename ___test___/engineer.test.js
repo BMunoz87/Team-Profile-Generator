@@ -1,29 +1,22 @@
-// Obtain / Require Engineer Class
+const { test, expect } = require('@jest/globals');
 const Engineer = require('../lib/engineer');
 
-// Engineer Class Constructor Jest test
-describe('Engineer', () => {
-    it('Should set GitHUb account using constructor', () => {
-        const testGitHub = 'GitHub';
-        const engineer = new Engineer('Engineer', 1, 'test@noemail.com', testGitHub);
-        expect(engineer.github).toBe(testGitHub);
-    });
+test('will constructor set github', () => {
+    const github = 'github.com/stuffinsthebear'
+    const testEng = new Engineer('foo', 'Foo', 'Foo', 'Foo', github)
+
+    expect(testEng.github).toBe(github);
 });
 
-// getRole() Method Jest test
-describe('getRole', () => {
-    it('Should return \'Engineer\' using getRole()', () => {
-        const testRole = 'Engineer';
-        const engineer = new Engineer('Role', 1, 'test@noemail.com', 'GitHubUser');
-        expect(engineer.getRole()).toBe(testRole);
-    });
+test('will constructor function return github', () => {
+    const github = 'github.com/stuffinsthebear'
+    const testEng = new Engineer('foo', 'Foo', 'Foo', 'Foo', github)
+
+    expect(testEng.getGithub()).toBe(github);
 });
 
-// getGithub() Method Jest test
-describe('getGithub', () => {
-    it('Should get GitHub username using getGithub()', () => {
-        const testVal = 'GitHubUser';
-        const engineer = new Engineer('GitHub', 1, 'test@noemail.com', testVal);
-        expect(engineer.getGithub()).toBe(testVal);
-    });
+test('will constructor function return role', () => {
+    const testEng = new Engineer;
+
+    expect(testEng.getRole()).toBe('Engineer');
 });

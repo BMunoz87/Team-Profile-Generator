@@ -1,62 +1,50 @@
-const Employee = require("../lib/Employee");
+const { test, expect } = require('@jest/globals');
+const Employee = require('../lib/employee');
 
-// Employee test
-test('Should instantiate the Employee instance', () => {
-        const employee = new Employee();
-        expect(typeof (employee)).toBe('object');
+test('check if employee constructor creates an object', () => {
+    const testEmp = new Employee;
+
+    expect(typeof testEmp).toBe('object');
 });
 
-test('Should set the name using the constructor argument', () => {
-        const testName = 'Dave';
-        const employee = new Employee(testName);
-        expect(employee.name).toBe(testName);
+test('employee constructor set name', () => {
+    const name = 'Tessa';
+    const testEmp = new Employee(name);
+
+    expect(testEmp.name).toBe(name);
 });
 
-test('Should set the id using the constructor argument', () => {
-        const testId = 10;
-        const employee = new Employee(10, testId);
-        expect(employee.id).toBe(testId);
+test('will constructor function return employee name', () => {
+    const name = 'Tessa';
+    const testEmp = new Employee(name);
+
+    expect(testEmp.getName()).toBe(name);
 });
 
-test('Should set the email address using the constructor argument', () => {
-        const testEmail = 'test@noemail.com';
-        const employee = new Employee('email', 1, testEmail);
-        expect(employee.email).toBe(testEmail);
+test('employee constructor set employee id', () => {
+    const id = '8888';
+    const testEmp = new Employee('foo', 'foo', id);
+
+    expect(testEmp.id).toBe(id);
 });
 
+test('will constructor function return employee id', () => {
+    const id = '8888';
+    const testEmp = new Employee('foo', 'foo', id);
 
-// getName() method Jest test
-describe('getName', () => {
-    it('Should get name from getName()', () => {
-        const testName = 'Dave';
-        const employee = new Employee(testName);
-        expect(employee.getName()).toBe(testName);
-    });
+    expect(testEmp.getId()).toBe(id);
 });
 
-// getId() method Jest test
-describe('getId', () => {
-    it('Should get id from getId()', () => {
-        const testId = 10;
-        const employee = new Employee(10, testId);
-        expect(employee.getId()).toBe(testId);
-    });
+test('employee constructor set employee email', () => {
+    const email = '8888';
+    const testEmp = new Employee('foo', 'Foo', 'foo', email);
+
+    expect(testEmp.email).toBe(email);
 });
 
-// getEmail() method Jest test
-describe('getEmail', () => {
-    it('Should get email from getEmail()', () => {
-        const testEmail = 'test@noemail.com';
-        const employee = new Employee('email', 1, testEmail);
-        expect(employee.getEmail()).toBe(testEmail);
-    });
-});
+test('will constructor function return employee email', () => {
+    const email = '8888';
+    const testEmp = new Employee('foo', 'Foo', 'foo', email);
 
-// getRole() method Jest test
-describe('getRole', () => {
-    it('getRole() should return \"Employee\"', () => {
-        const testRole = 'Employee';
-        const employee = new Employee('Role', 1, 'test@noemail.com');
-        expect(employee.getRole()).toBe(testRole);
-    });
+    expect(testEmp.getEmail()).toBe(email);
 });

@@ -1,22 +1,22 @@
-const Manager = require('../lib/Manager');
+const { test, expect } = require('@jest/globals');
+const Manager = require('../lib/manager');
 
-// Manager test
-test('Should set the office number using constructor', () => {
-        const testOffice = 10;
-        const manager = new Manager('Manager', 1, 'test@noemail.com', testOffice);
-        expect(manager.officeNumber).toBe(testOffice);
-    });
+test('will constructor set officeNum', () => {
+    const officeNum = '8675309'
+    const testMan = new Manager('foo', 'Foo', 'Foo', 'Foo', officeNum)
 
-// getRole() Method Jest test
-test('Should return \"Manager\" using getRole()', () => {
-        const testRole = 'Manager';
-        const manager = new Manager('Role', 1, 'test@noemail.com', 10);
-        expect(manager.getRole()).toBe(testRole);
-    });
+    expect(testMan.officeNumber).toBe(officeNum);
+});
 
-// getOfficeNumber() Method Jest test
-test('Should get the office number using getOfficeNumber()', () => {
-        const testOfficeNo = 10;
-        const manager = new Manager('Office', 1, 'test@noemail.com', testOfficeNo);
-        expect(manager.getOfficeNumber()).toBe(testOfficeNo);
-    });
+test('will constructor function return officeNum', () => {
+    const officeNum = '8675309'
+    const testMan = new Manager('foo', 'Foo', 'Foo', 'Foo', officeNum)
+
+    expect(testMan.getOfficeNumber()).toBe(officeNum);
+});
+
+test('will constructor function return role', () => {
+    const testMan = new Manager;
+
+    expect(testMan.getRole()).toBe('Manager');
+});

@@ -1,23 +1,22 @@
-// Obtain / Require Intern Class
-const Intern = require('../lib/Intern');
+const { test, expect } = require('@jest/globals');
+const Intern = require('../lib/intern');
 
-// Intern Class Constructor Jest test
-test('Should set school using constructor', () => {
-        const testSchool = 'University of Birmingham';
-        const intern = new Intern('School', 1, 'test@noemail.com', testSchool);
-        expect(intern.school).toBe(testSchool);
-    });
+test('will constructor set university', () => {
+    const university = 'university.com/stuffinsthebear'
+    const testInt = new Intern('foo', 'Foo', 'Foo', 'foo', university)
 
-// getRole() Method Jest test
-test('Should return \"Intern\" using getRole()', () => {
-        const testRole = 'Intern';
-        const intern = new Intern('Role', 1, 'test@noemail.com', 'University of Birmingham');
-        expect(intern.getRole()).toBe(testRole);
-    });
+    expect(testInt.university).toBe(university);
+});
 
-// getSchool() Method Jest test
-test('Should get school using getSchool()', () => {
-        const testSchool = 'University of Birmingham';
-        const intern = new Intern('School', 1, 'test@noemail.com', testSchool);
-        expect(intern.getSchool()).toBe(testSchool);
-    });
+test('will constructor function return university', () => {
+    const university = 'university.com/stuffinsthebear'
+    const testInt = new Intern('foo', 'Foo', 'Foo', 'foo', university)
+
+    expect(testInt.getSchool()).toBe(university);
+});
+
+test('will constructor function return role', () => {
+    const testInt = new Intern;
+
+    expect(testInt.getRole()).toBe('Intern');
+});
